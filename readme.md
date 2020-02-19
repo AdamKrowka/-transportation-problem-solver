@@ -63,4 +63,6 @@ const nextStep = tp.nextStep();
 // }
 ```
 
+### This is my first atempt to implement mathematical algorythm in JavaScript so, if You find any bug fell free to send me a message i will try to correct them.
+
 ## [Github Repository ](https://github.com/AdamKrowka/-transportation-problem-solver)
