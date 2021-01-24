@@ -1,4 +1,4 @@
-export class TransportProblem {
+class TransportProblem {
   constructor() {
     this.entryTable = [];
     this.solution = [];
@@ -132,7 +132,7 @@ export class TransportProblem {
   };
 
   // 3. Checking if its optimal solution
-  isOptimal = () => {
+  isOptimalNew = () => {
     let moreThanZero = false;
     let potential = this.return;
     potential.forEach((wiersz, y) =>
@@ -177,7 +177,7 @@ export class TransportProblem {
     return start;
   };
 
-  cycle = () => {
+  cycleNew = () => {
     let start = this.return;
     this.solution[start.y][start.x] = 0;
     this.cycle = [];
@@ -326,7 +326,7 @@ export class TransportProblem {
     return table;
   };
 
-  solution = () => {
+  solutionNew = () => {
     while (!this.isOptimal) {
       this.nextStep();
     }
@@ -372,7 +372,7 @@ export class TransportProblem {
           desc: "Calculating not base potentials"
         };
       case 4:
-        if (this.isOptimal()) {
+        if (this.isOptimalNew()) {
           this.next = 0;
           return this.nextStep();
         } else {
@@ -389,7 +389,7 @@ export class TransportProblem {
         return this.return;
 
       case 6:
-        this.cycle();
+        this.cycleNew();
         this.next = 7;
         this.T = this.minimallElementOfCycle();
         return {
@@ -413,3 +413,5 @@ export class TransportProblem {
     }
   };
 }
+
+module.exports = TransportProblem
